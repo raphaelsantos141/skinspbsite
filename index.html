@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <input type="text" id="search-bar" placeholder="Search for weapons...">
+        <button class="search-btn" id="search-btn">Search</button>
+    </nav>
+    <div class="main-container">
+        <!-- Sidebar Menu -->
+        <aside class="sidebar">
+            <ul class="filter-menu">
+                <li onclick="filterWeapons('all')" class="active">All</li>
+                <li onclick="toggleSubMenu('main-submenu')">Main</li>
+                <ul class="submenu" id="main-submenu">
+                    <li onclick="filterWeapons('assault')">Assault</li>
+                    <li onclick="filterWeapons('smg')">SMG</li>
+                    <li onclick="filterWeapons('sniper')">Sniper</li>
+                    <li onclick="filterWeapons('mg')">MG</li>
+                    <li onclick="filterWeapons('shotgun')">Shotgun</li>
+                </ul>
+                <li onclick="filterWeapons('secondary')">Secondary</li>
+                <li onclick="filterWeapons('melee')">Melee</li>
+                <li onclick="filterWeapons('explosive')">Explosive</li>
+            </ul>
+        </aside>
+
+        <!-- Weapon Grid -->
+        <section class="weapon-grid"></section>
+    </div>
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        <button id="prev-btn" onclick="changePage(-1)">Anterior</button>
+        <div id="page-numbers" class="page-numbers"></div>
+        <button id="next-btn" onclick="changePage(1)">Próximo</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

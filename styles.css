@@ -1,0 +1,306 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a2e3f;
+    color: white;
+}
+
+/* Header Search Bar */
+nav {
+    background-color: #001f3f;
+    padding: 15px;
+    text-align: right;
+}
+
+#search-bar {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+}
+
+.search-btn {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-options {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center; /* Centraliza os botões de filtro */
+}
+
+.filter-options button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove bordas */
+    cursor: pointer; /* Cursor de ponteiro para indicar que é clicável */
+    transition: background-color 0.3s; /* Efeito de transição para a cor de fundo */
+}
+
+.filter-options button:hover {
+    background-color: #0056b3; /* Cor de fundo quando o mouse está sobre o botão */
+}
+
+
+/* Main Container */
+.main-container {
+    display: flex;
+    padding-right: 5%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background-color: #0c1c2c;
+    padding: 20px;
+    transition: none;
+    position: relative;
+    display: block;
+    padding: 1.4rem 2.4rem 1.2rem;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+    text-shadow: 1px 1px 0 #f00;
+}
+
+.filter-menu {
+    list-style-type: none;
+}
+
+.filter-menu li {
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background-color: #122c3d;
+    text-align: left;
+    border-left: 4px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.filter-menu li:hover,
+.filter-menu li.active,
+.submenu li.active {
+    background-color: #AA0000;
+    border-left-color: #AA0000;
+}
+
+/* Submenu hidden by default */
+.submenu {
+    display: none;
+    margin-left: 20px;
+    letter-spacing: none;
+    text-shadow: none;
+    color: gray;
+}
+
+.submenu li {
+    background-color: transparent;
+    list-style-type: none; /* Remove os marcadores da lista não ordenada */
+}
+
+.submenu li:hover {
+    background-color: #AA0000;
+    color: white;
+}
+
+/* Show submenu when toggled */
+.show {
+    display: block;
+}
+
+/* Weapon Grid */
+.weapon-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 colunas */
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.weapon-card {
+    background-color: #4A76C8; /* Light blue background for the card */
+    padding: 2px; /* Aumentar o preenchimento para tornar os cards maiores */
+    padding-bottom: 20px; /* Aumentar o preenchimento para tornar os cards maiores */
+    text-align: center;
+    position: relative; /* To position the overlay image */
+    transition: transform 0.3s;
+    height: 200px; /* Aumentar a altura dos cards */
+}
+
+.weapon-card:hover {
+    background-color: #1C428F;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.weapon-card:hover .image-background {
+    background-image: none;
+    background-color: black; /* Define o fundo preto ao passar o mouse */
+}
+
+/* Background image for the card */
+.image-background {
+    background-image: url('/img/bg_item.png');
+    background-size: 100% 100%; /* Define a imagem para cobrir 100% do contêiner */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-position: center; /* Centraliza a imagem */
+    padding: 10px;
+    position: relative; /* Mantenha esta linha */
+    height: 150px; /* Ajuste a altura conforme necessário */
+}
+
+/* Tag para a categoria do card */
+.tag {
+    position: absolute; /* Para posicionar a tag no canto superior direito */
+    top: 10px; /* Ajuste a distância do topo */
+    right: 10px; /* Ajuste a distância da direita */
+    display: inline-block;
+    padding: 5px;
+    font-size: 12px;
+    color: #87cfff;
+    background-color:rgba(0, 17, 51, 0.7); /* Azul claro com opacidade */
+    font-weight: 500;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+    border-radius: 1.2rem 0 1.2rem 1.2rem;
+   border: 1px solid #87cfff;
+    z-index: 1; /* Garante que a tag fique acima da imagem */
+    user-select: none; /* Impede a seleção de texto */
+}
+
+.image-background img {
+    padding: 10px;
+}
+
+/* Overlay image */
+.overlay {
+    max-width: 80%;
+    max-height: 100%;
+    position: absolute; /* Position the overlay image */
+    top: 50%; /* Center the overlay vertically */
+    left: 50%; /* Center the overlay horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+}
+
+.weapon-card h3 {
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Roboto';
+    line-height: 1.2;
+    min-height: 50px;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.02rem;
+    user-select: none; /* Impede a seleção de texto */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha verticalmente os itens */
+    margin: 20px 0;
+}
+
+#page-numbers {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os números das páginas */
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.page-number {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.page-number.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:disabled {
+    background-color: #ccc; /* Desabilitar o botão se não houver mais páginas */
+}
+
+#page-numbers {
+    display: flex;
+    margin: 0 10px; /* Espaçamento entre o texto da página e os números */
+}
+
+.page-number {
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.page-number:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.page-number.active {
+    background-color: #0056b3; /* Cor para a página ativa */
+}
+
+@media (max-width: 768px) {
+    .weapon-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 1160px) {
+    .weapon-grid {
+        grid-template-columns: repeat(3, 1fr); /* 4 columns for smaller screens */
+    }
+}
+
+@media (max-width: 535px) {
+    .weapon-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+
+
+    .sidebar {
+        width: 100%; /* Full width sidebar on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        padding: 10px; /* Menos padding em telas pequenas */
+    }
+}
